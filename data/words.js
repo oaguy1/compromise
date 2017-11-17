@@ -40,7 +40,7 @@ var data = [
   // [require('./words/verbs/phrasals'), 'PhrasalVerb'],
   [require('./words/verbs/modals'), 'Modal'],
   //adjectives
-  [require('./words/adjectives/adjectives'), 'Adjective'],
+  // [require('./words/adjectives/adjectives'), 'Adjective'],
   [require('./words/adjectives/comparables'), 'Comparable'],
   [require('./words/adverbs'), 'Adverb'],
   //misc

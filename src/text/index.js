@@ -47,7 +47,7 @@ require('./methods/match')(Text);
 require('./methods/out')(Text);
 require('./methods/sort')(Text);
 require('./methods/split')(Text);
-require('./methods/normalize')(Text);
+// require('./methods/normalize')(Text);
 // require('./subsets')(Text);
 
 //apply subset methods

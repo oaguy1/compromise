@@ -41,5 +41,5 @@ require('./methods/out')(Terms);
 require('./methods/replace')(Terms);
 require('./methods/split')(Terms);
 require('./methods/transform')(Terms);
-require('./methods/lump')(Terms);
+// require('./methods/lump')(Terms);
 module.exports = Terms;
