@@ -3,7 +3,7 @@
 module.exports = {
   words: require('./words'),
   conjugations: require('./conjugations'),
-  plurals: require('./plurals'),
+  // plurals: require('./plurals'),
   patterns: require('./patterns'),
   regex: require('./regex'),
 };

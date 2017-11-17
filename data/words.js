@@ -5,21 +5,21 @@ var lex = require('./words/misc');
 //add-in the generic, flat word-lists
 var data = [
   //nouns
-  [require('./words/nouns/singulars'), 'Singular'],
-  [require('./words/nouns/professions'), 'Noun'],
-  [require('./words/nouns/sportsTeams'), 'SportsTeam'],
-  [require('./words/nouns/uncountables'), 'Uncountable'],
-  [require('./words/nouns/pronouns'), 'Pronoun'],
-  [require('./words/nouns/organizations'), 'Organization'],
-  [require('./words/nouns/demonyms'), 'Demonym'],
-  [require('./words/possessives'), 'Possessive'], //+pronoun?
-  [require('./words/currencies'), 'Currency'],
-  [require('./words/units'), 'Unit'],
+  [require('./words/nouns/singulars'), 'Noun'],
+  // [require('./words/nouns/professions'), 'Noun'],
+  // [require('./words/nouns/sportsTeams'), 'Noun'],
+  // [require('./words/nouns/uncountables'), 'Noun'],
+  [require('./words/nouns/pronouns'), 'Noun'],
+  // [require('./words/nouns/organizations'), 'Noun'],
+  // [require('./words/nouns/demonyms'), 'Noun'],
+  [require('./words/possessives'), 'Noun'], //+pronoun?
+  // [require('./words/currencies'), 'Noun'],
+  [require('./words/units'), 'Noun'],
 
-  [require('./words/places/countries'), 'Country'],
-  [require('./words/places/regions'), 'Region'],
-  [require('./words/places/places'), 'Place'],
-  [require('./words/places/cities'), 'City'],
+  // [require('./words/places/countries'), 'Noun'],
+  // [require('./words/places/regions'), 'Noun'],
+  // [require('./words/places/places'), 'Noun'],
+  // [require('./words/places/cities'), 'Noun'],
   //dates
   [require('./words/dates/days'), 'WeekDay'],
   [require('./words/dates/dates'), ['Date', 'Noun']],
@@ -28,16 +28,16 @@ var data = [
   [require('./words/dates/durations'), 'Duration'],
   [require('./words/dates/times'), 'Time'],
   //people
-  [require('./words/people/firstnames'), 'FirstName'],
-  [require('./words/people/lastnames'), 'LastName'],
-  [require('./words/people/maleNames'), 'MaleName'],
-  [require('./words/people/femaleNames'), 'FemaleName'],
+  // [require('./words/people/firstnames'), 'Noun'],
+  // [require('./words/people/lastnames'), 'Noun'],
+  // [require('./words/people/maleNames'), 'Noun'],
+  // [require('./words/people/femaleNames'), 'Noun'],
   [require('./words/people/honorifics'), 'Honorific'],
-  [require('./words/people/people'), 'Person'],
+  // [require('./words/people/people'), 'Noun'],
   //verbs
   [require('./words/verbs/infinitives'), 'Infinitive'],
   [require('./words/verbs/verbs'), 'Verb'],
-  [require('./words/verbs/phrasals'), 'PhrasalVerb'],
+  // [require('./words/verbs/phrasals'), 'PhrasalVerb'],
   [require('./words/verbs/modals'), 'Modal'],
   //adjectives
   [require('./words/adjectives/adjectives'), 'Adjective'],

@@ -11,7 +11,9 @@ var libs = [
 libs.forEach((nlp, i) => {
   console.log(chalk.green('  - - #' + i));
   var r = nlp('John and Joe walked to the store');
-  assert(r.people().data().length === 2);
-  assert(r.verbs().data().length === 1);
+  assert(r.has('#Noun'));
+  assert(r.has('#Verb'));
+  assert(r.out('terms').length === 7);
+// assert(r.verbs().data().length === 1);
 });
 console.log(chalk.green('\n  👍'));

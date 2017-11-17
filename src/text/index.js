@@ -48,24 +48,24 @@ require('./methods/out')(Text);
 require('./methods/sort')(Text);
 require('./methods/split')(Text);
 require('./methods/normalize')(Text);
-require('./subsets')(Text);
+// require('./subsets')(Text);
 
 //apply subset methods
 const subset = {
-  acronyms: require('../subset/acronyms'),
-  adjectives: require('../subset/adjectives'),
-  adverbs: require('../subset/adverbs'),
+  // acronyms: require('../subset/acronyms'),
+  // adjectives: require('../subset/adjectives'),
+  // adverbs: require('../subset/adverbs'),
   contractions: require('../subset/contractions'),
   dates: require('../subset/dates'),
-  nouns: require('../subset/nouns'),
-  people: require('../subset/people'),
-  sentences: require('../subset/sentences'),
+  // nouns: require('../subset/nouns'),
+  // people: require('../subset/people'),
+  // sentences: require('../subset/sentences'),
   terms: require('../subset/terms'),
   values: require('../subset/values'),
-  verbs: require('../subset/verbs'),
-  ngrams: require('../subset/ngrams'),
-  startGrams: require('../subset/ngrams/startGrams'),
-  endGrams: require('../subset/ngrams/endGrams')
+// verbs: require('../subset/verbs'),
+// ngrams: require('../subset/ngrams'),
+// startGrams: require('../subset/ngrams/startGrams'),
+// endGrams: require('../subset/ngrams/endGrams')
 };
 Object.keys(subset).forEach(k => {
   Text.prototype[k] = function(num, arg) {
