@@ -1,6 +1,8 @@
 const Phrase = require('../phrase');
 const Cache = require('./cache');
 const build = require('./build');
+const match = require('./match');
+
 
 //a list of phrases
 class Text {
@@ -42,13 +44,8 @@ Text.prototype.derivative = function(phrases) {
   return text;
 };
 
-Text.prototype.match = function(tag) {
-  let phrases = [];
-  this.phrases.forEach((phrase) => {
-    let matches = phrase.match(tag);
-    phrases = phrases.concat(matches);
-  // matches.forEach((m) => arr.push(m));
-  });
+Text.prototype.match = function(str) {
+  let phrases = match(str, this);
   return this.derivative(phrases);
 };
 
