@@ -3,14 +3,13 @@ class Cache {
   constructor() {
     this.obj = {};
   }
-  addWord(term) {
-    this.obj[term.id] = term;
-  }
-  addList(list) {
-    list.forEach((term, i) => {
-      term.previous = list[i - 1];
-      term.next = list[i + 1];
-      this.obj[term.id] = term;
+  buildUp(sentences) {
+    sentences.forEach((terms) => {
+      terms.forEach((term, i) => {
+        term.previous = terms[i - 1];
+        term.next = terms[i + 1];
+        this.obj[term.id] = term;
+      });
     });
   }
   get(id) {

@@ -1,11 +1,14 @@
 const tagger = require('./tagger');
 
-// //a stretch of words
 class Phrase {
-  constructor(startID, endID, context) {
-    this.startID = startID;
-    this.endID = endID;
+  constructor(obj, context) {
+    this.start = obj.start;
+    this.end = obj.end;
     this.context = context;
+  }
+  tagger() {
+    tagger(this);
+    return this;
   }
   terms() {
     let cache = this.context.cache;
@@ -17,23 +20,5 @@ class Phrase {
     }
     return terms;
   }
-  tagger() {
-    return tagger(this);
-  }
-  text() {
-    return this.terms().reduce((str, term) => {
-      return str + term.preText + term.text + term.postText;
-    }, '');
-  }
-  normal() {
-    return this.terms().map(t => t.normal).join(' ');
-  }
-  json(obj) {
-    return this.terms().map(t => t.json(obj));
-  }
 }
-Phrase.prototype.derive = function(ids) {
-  return new Phrase(ids, this.context);
-};
-
 module.exports = Phrase;

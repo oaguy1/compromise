@@ -1,7 +1,7 @@
-const Doc = require('./doc');
+const Text = require('./text');
 
 const main = function(str) {
-  let doc = new Doc(str);
+  let doc = new Text(str);
   return doc;
 };
 
