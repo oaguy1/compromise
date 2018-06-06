@@ -2,20 +2,27 @@ const tagger = require('./tagger');
 
 // //a stretch of words
 class Phrase {
-  constructor(ids, context) {
-    this.ids = ids;
+  constructor(startID, endID, context) {
+    this.startID = startID;
+    this.endID = endID;
     this.context = context;
   }
   terms() {
     let cache = this.context.cache;
-    return this.ids.map((id) => cache.get(id));
+    let t = cache.get(this.startID);
+    let terms = [t];
+    while (t.next && t.id !== this.endID) {
+      t = t.next;
+      terms.push(t);
+    }
+    return terms;
   }
   tagger() {
     return tagger(this);
   }
   text() {
     return this.terms().reduce((str, term) => {
-      return str + term.before + term.text + term.after;
+      return str + term.preText + term.text + term.postText;
     }, '');
   }
   normal() {

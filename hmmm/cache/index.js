@@ -7,7 +7,9 @@ class Cache {
     this.obj[term.id] = term;
   }
   addList(list) {
-    list.forEach((term) => {
+    list.forEach((term, i) => {
+      term.previous = list[i - 1];
+      term.next = list[i + 1];
       this.obj[term.id] = term;
     });
   }

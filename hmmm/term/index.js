@@ -6,9 +6,11 @@ class Term {
   constructor(str) {
     let parts = buildWhitespace(str);
     this.text = parts.text;
-    this.before = parts.before;
-    this.after = parts.after;
+    this.preText = parts.before;
+    this.postText = parts.after;
     this.tags = {};
+    this.previous = null;
+    this.next = null;
     this.normal = normalize(this.text);
     this.id = uuid(this.normal);
   }
