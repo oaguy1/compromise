@@ -9,7 +9,7 @@ class Stack {
     return this;
   }
   current() {
-    return this.history[this.history.length - 1];
+    return this.history[this.history.length - 1] || [];
   }
   pop() {
     if (this.history.length > 1) {
@@ -18,4 +18,8 @@ class Stack {
     return this;
   }
 }
+Stack.prototype.clone = function() {
+  let arr = this.history.slice(0);
+  return new Stack(arr);
+};
 module.exports = Stack;
