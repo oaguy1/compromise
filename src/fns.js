@@ -1,5 +1,4 @@
 'use strict';
-const tagset = require('./tags');
 
 // https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
 const c = {
@@ -18,48 +17,6 @@ if (typeof module === 'undefined') {
     c[k] = '';
   });
 }
-
-//coerce any input into a string
-exports.ensureString = input => {
-  if (typeof input === 'string') {
-    return input;
-  } else if (typeof input === 'number') {
-    return String(input);
-  }
-  return '';
-};
-//coerce any input into a string
-exports.ensureObject = input => {
-  if (typeof input !== 'object') {
-    return {};
-  }
-  if (input === null || input instanceof Array) {
-    return {};
-  }
-  return input;
-};
-
-exports.titleCase = str => {
-  return str.charAt(0).toUpperCase() + str.substr(1);
-};
-
-//shallow-clone an object
-exports.copy = o => {
-  let o2 = {};
-  o = exports.ensureObject(o);
-  Object.keys(o).forEach(k => {
-    o2[k] = o[k];
-  });
-  return o2;
-};
-exports.extend = (obj, a) => {
-  obj = exports.copy(obj);
-  const keys = Object.keys(a);
-  for (let i = 0; i < keys.length; i++) {
-    obj[keys[i]] = a[keys[i]];
-  }
-  return obj;
-};
 
 //colorization
 exports.green = function(str) {
@@ -83,24 +40,6 @@ exports.yellow = function(str) {
 exports.black = function(str) {
   return c.black + str + c.reset;
 };
-exports.printTag = function(tag) {
-  if (tagset[tag]) {
-    const color = tagset[tag].color || 'blue';
-    return exports[color](tag);
-  }
-  return tag;
-};
-exports.printTerm = function(t) {
-  const tags = Object.keys(t.tags);
-  for (let i = 0; i < tags.length; i++) {
-    if (tagset[tags[i]]) {
-      const color = tagset[tags[i]].color || 'black';
-      return exports[color](t.out('text'));
-    }
-  }
-  return c.reset + t.plaintext + c.reset;
-};
-
 exports.leftPad = function(str, width, char) {
   char = char || ' ';
   str = str.toString();

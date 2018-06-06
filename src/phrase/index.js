@@ -12,13 +12,24 @@ class Phrase {
   }
   terms() {
     let cache = this.context.cache;
-    let t = cache.get(this.startID);
+    let t = cache.get(this.start);
     let terms = [t];
-    while (t.next && t.id !== this.endID) {
+    while (t.next && t.id !== this.end) {
       t = t.next;
       terms.push(t);
     }
     return terms;
+  }
+  text() {
+    return this.terms().reduce((str, term) => {
+      return str + term.preText + term.text + term.postText;
+    }, '');
+  }
+  normal() {
+    return this.terms().map(t => t.normal).join(' ');
+  }
+  json(obj) {
+    return this.terms().map(t => t.json(obj));
   }
 }
 module.exports = Phrase;

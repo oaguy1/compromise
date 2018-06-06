@@ -30,7 +30,9 @@ const build_whitespace = (str) => {
     str = str.replace(after, '');
     whitespace.after = m[0];
   }
-  whitespace.text = str;
-  return whitespace;
+  return {
+    whitespace: whitespace,
+    text: str
+  };
 };
 module.exports = build_whitespace;

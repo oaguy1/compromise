@@ -2,6 +2,7 @@ const build = require('./build');
 const Cache = require('../cache');
 const Stack = require('./stack');
 const Phrase = require('../phrase');
+const debug = require('./methods/debug');
 
 class Doc {
   constructor(str) {
@@ -21,13 +22,26 @@ class Doc {
     //build-up the history
     this.stack = new Stack();
     this.stack.add(phraseList);
+    this.tagger();
   }
   phrases() {
     let list = this.stack.current();
     return list.map((obj) => new Phrase(obj, this));
   }
-  text() {
-    return this.phrases.reduce((str, p) => str + p.text(), '');
+  termList() {
+    return this.phrases().map((p) => p.terms());
+  }
+  tagger() {
+    this.phrases().forEach((p) => p.tagger());
+    return this;
+  }
+  out() {
+    return this.phrases().reduce((str, p) => str + p.text(), '');
+  }
+  debug() {
+    debug(this);
+    return this;
   }
 }
+Doc.prototype.text = Doc.prototype.out;
 module.exports = Doc;

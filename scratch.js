@@ -1,11 +1,11 @@
-// var nlp = require('./src/index');
-var nlp = require('./hmmm');
+var nlp = require('./src/index');
 // nlp.verbose('tagger');
 
 
 let doc = nlp('he is really good. She goes to school.');
-console.log(doc.phrases());
-// console.log(doc.text());
+// console.log(doc.termList());
+doc.debug();
+console.log(doc.text());
 // doc.debug();
 
 // doc.match('#Verb').debug();

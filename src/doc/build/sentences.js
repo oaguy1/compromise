@@ -1,7 +1,7 @@
 //(Rule-based sentence boundary segmentation) - chop given text into its proper sentences.
 // Ignore periods/questions/exclamations used in acronyms/abbreviations/numbers, etc.
 // @spencermountain 2017 MIT
-const abbreviations = Object.keys(require('../../../src/world/more-data/abbreviations'));
+const abbreviations = require('./abbreviations');
 // \u203D - Interrobang
 // \u2E18 - Inverted Interrobang
 // \u203C - Double Exclamation Mark
