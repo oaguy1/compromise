@@ -1,6 +1,7 @@
 const build = require('./build');
-const Cache = require('../cache');
+const Cache = require('./cache');
 const Stack = require('./stack');
+const match = require('./match');
 const Phrase = require('../phrase');
 const debug = require('./methods/debug');
 
@@ -33,6 +34,11 @@ class Doc {
   }
   tagger() {
     this.phrases().forEach((p) => p.tagger());
+    return this;
+  }
+  match(str) {
+    let matches = match(this, str);
+    console.log(matches);
     return this;
   }
   out() {

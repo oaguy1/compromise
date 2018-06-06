@@ -1,6 +1,7 @@
 const normalize = require('./normalize');
 const buildWhitespace = require('./whitespace');
 const uuid = require('./uuid');
+const match = require('./match');
 
 class Term {
   constructor(str) {
@@ -17,14 +18,8 @@ class Term {
   tag(tag) {
     this.tags[tag] = true;
   }
-  match(reg) {
-    if (this.normal === reg || this.text === reg) {
-      return true;
-    }
-    if (this.tags.hasOwnProperty(reg) === true) {
-      return true;
-    }
-    return false;
+  match(token) {
+    return match(this, token);
   }
   json(obj) {
     //set defaults

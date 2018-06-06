@@ -3,6 +3,9 @@ const lexicon = {
   goes: 'Verb',
   he: 'Pronoun',
   she: 'Pronoun',
+  really: 'Adverb',
+  good: 'Adjective',
+  cool: 'Adjective',
 };
 
 //
