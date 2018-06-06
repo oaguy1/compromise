@@ -6,8 +6,12 @@ class Cache {
   buildUp(sentences) {
     sentences.forEach((terms) => {
       terms.forEach((term, i) => {
-        term.previous = terms[i - 1];
-        term.next = terms[i + 1];
+        if (terms[i - 1]) {
+          term.lastID = terms[i - 1].id;
+        }
+        if (terms[i + 1]) {
+          term.nextID = terms[i + 1].id;
+        }
         this.obj[term.id] = term;
       });
     });
@@ -16,4 +20,12 @@ class Cache {
     return this.obj[id];
   }
 }
+Cache.prototype.clone = function() {
+  let c = new Cache();
+  c.obj = Object.keys(this.obj).reduce((h, k) => {
+    h[k] = this.obj[k].clone();
+    return h;
+  }, {});
+  return c;
+};
 module.exports = Cache;

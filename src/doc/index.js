@@ -73,5 +73,9 @@ Doc.prototype.branch = function(matches) {
   doc.stack.add(matches);
   return doc;
 };
+Doc.prototype.clone = function() {
+  let doc = new Doc(this.cache.clone(), this.stack.clone());
+  return doc;
+};
 Doc.prototype.text = Doc.prototype.out;
 module.exports = Doc;

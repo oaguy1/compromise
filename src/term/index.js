@@ -10,8 +10,8 @@ class Term {
     this.preText = parts.before;
     this.postText = parts.after;
     this.tags = {};
-    this.previous = null;
-    this.next = null;
+    this.lastID = null;
+    this.nextID = null;
     this.normal = normalize(this.text);
     this.id = uuid(this.normal);
   }
@@ -34,4 +34,10 @@ class Term {
     }, {});
   }
 }
+
+//https://stackoverflow.com/questions/41474986/how-to-clone-a-javascript-es6-class-instance
+Term.prototype.clone = function() {
+  let clone = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
+  return clone;
+};
 module.exports = Term;

@@ -1,8 +1,7 @@
 //our nested history of match results, so we can 'zoom-in/out' of our document
 class Stack {
-  constructor(cache) {
-    this.cache = cache;
-    this.history = [];
+  constructor(history) {
+    this.history = history || [];
   }
   add(arr) {
     this.history.push(arr);
@@ -19,7 +18,8 @@ class Stack {
   }
 }
 Stack.prototype.clone = function() {
-  let arr = this.history.slice(0);
+  // let arr = this.history.slice(0);
+  arr = JSON.parse(JSON.stringify(this.history));
   return new Stack(arr);
 };
 module.exports = Stack;

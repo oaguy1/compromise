@@ -14,8 +14,8 @@ class Phrase {
     let cache = this.context.cache;
     let t = cache.get(this.start);
     let terms = [t];
-    while (t.next && t.id !== this.end) {
-      t = t.next;
+    while (t.nextID && t.id !== this.end) {
+      t = cache.get(t.nextID);
       terms.push(t);
     }
     return terms;
