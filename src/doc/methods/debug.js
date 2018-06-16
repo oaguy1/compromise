@@ -45,7 +45,7 @@ const printTerm = function(t) {
 const debug = function(doc) {
   console.log(fns.green('\n\n===== '));
   doc.phrases().forEach((p) => {
-    console.log('  ---------');
+    console.log(`  ---${p.class||''}-----`);
     p.terms().forEach((t) => printTerm(t));
   });
 };

@@ -2,6 +2,7 @@ const build = require('./build');
 const Cache = require('./cache');
 const Stack = require('./stack');
 const match = require('./match');
+const addSubclass = require('./subclass');
 const Phrase = require('../phrase');
 const debug = require('./methods/debug');
 
@@ -60,12 +61,20 @@ class Doc {
   out() {
     return this.phrases().reduce((str, p) => str + p.text(), '');
   }
+  toUpperCase(){
+    this.terms().forEach((t) => t.text=t.text.toUpperCase())
+    return this
+  }
   debug() {
     debug(this);
     return this;
   }
 }
 
+Doc.prototype.clone = function() {
+  let doc = new Doc(this.cache.clone(), this.stack.clone());
+  return doc;
+};
 //create a new Doc object, based on this one
 Doc.prototype.branch = function(matches) {
   //share the cache, but only borrow the stack-history
@@ -73,9 +82,9 @@ Doc.prototype.branch = function(matches) {
   doc.stack.add(matches);
   return doc;
 };
-Doc.prototype.clone = function() {
-  let doc = new Doc(this.cache.clone(), this.stack.clone());
-  return doc;
-};
+
+//add subclass-methods
+addSubclass(Doc);
+
 Doc.prototype.text = Doc.prototype.out;
 module.exports = Doc;

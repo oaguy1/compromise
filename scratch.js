@@ -1,13 +1,17 @@
-var nlp = require('./src/index');
+var nlp = require('./old_one/index');
+// var nlp = require('./hmm/index');
 // nlp.verbose('tagger');
 
 
-let doc = nlp('he is really good. She goes to school. She is really damn cool.');
+let doc = nlp('Lietenant John Smith');
 // let two = doc.clone();
-// doc.clone().tag('cool').debug();
-doc.debug();
-// m.debug();
+// two.tag('cool');
+// two.debug();
+
+// let m = doc.match('#Adverb #Adjective');
+// let m2 = doc.match('#Adjective');
+// m2.tag('cool');
 // doc.debug();
-// m2.debug();
-// doc.match('#Verb+ and (cool|times and)?+ fun').debug();
-// console.log(doc.match('really').text());
+
+doc.debug();
+// console.log(doc.nouns().toUpperCase().debug().article());

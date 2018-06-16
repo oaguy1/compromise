@@ -38,6 +38,7 @@ class Term {
 //https://stackoverflow.com/questions/41474986/how-to-clone-a-javascript-es6-class-instance
 Term.prototype.clone = function() {
   let clone = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
+  clone.tags = Object.assign({}, clone.tags);
   return clone;
 };
 module.exports = Term;

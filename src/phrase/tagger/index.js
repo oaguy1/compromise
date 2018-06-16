@@ -4,8 +4,10 @@ const lexicon = {
   he: 'Pronoun',
   she: 'Pronoun',
   really: 'Adverb',
+  very: 'Adverb',
   good: 'Adjective',
   cool: 'Adjective',
+  nice: 'Adjective',
 };
 
 //
