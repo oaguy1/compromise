@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   Noun: {},
   // - singular
@@ -66,9 +68,39 @@ module.exports = {
     //(not plural or singular)
     isA: 'Noun'
   },
+
+  // - pronouns
   Pronoun: {
     isA: 'Noun'
   },
+  MalePronoun: {
+    isA: 'Pronoun'
+  },
+  FemalePronoun: {
+    isA: 'Pronoun'
+  },
+  NeutralPronoun: {
+    isA: 'Pronoun'
+  },
+  SingularPronoun: {
+    isA: 'Pronoun',
+  },
+  PluralPronoun: {
+    isA: 'Pronoun'
+  },
+  PersonalPronoun: {
+    isA: 'Pronoun'
+  },
+  FirstPersonPronoun: {
+    isA: 'Pronoun'
+  }
+  SecondPersonPronoun: {
+    isA: 'Pronoun'
+  },
+  ThirdPersonPronoun: {
+    isA: 'Pronoun'
+  },
+
   //a word for someone doing something -'plumber'
   Actor: {
     isA: 'Noun'
